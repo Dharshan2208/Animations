@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0f0f1e;
+        }
+
+        .button-container {
+            position: relative;
+        }
+
+        .button {
+            position: relative;
+            padding: 18px 36px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background-color: transparent;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            z-index: 1;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(130deg, #36d1dc, #5b86e5, #fc466b);
+            background-size: 200% 200%;
+            z-index: -2;
+            transition: all 0.6s ease;
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background-color: #131325;
+            border-radius: 6px;
+            z-index: -1;
+            transition: all 0.4s ease;
+        }
+
+        .border-animation {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(130deg, #36d1dc, #5b86e5, #fc466b);
+            background-size: 300% 300%;
+            border-radius: 10px;
+            z-index: -3;
+            animation: borderAnimation 3s ease infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .button:hover::before {
+            background-position: 100% 50%;
+        }
+
+        .button:hover + .border-animation {
+            opacity: 1;
+        }
+
+        .button:active {
+            transform: translateY(-2px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="button">Button</button>
+        <div class="border-animation"></div>
+    </div>
+</body>
+</html>

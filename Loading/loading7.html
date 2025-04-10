@@ -1,0 +1,124 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0f0f0f;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .loader {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid transparent;
+      animation: spin 1.5s linear infinite;
+    }
+
+    .circle-1 {
+      border-top-color: #ff3366;
+      filter: drop-shadow(0 0 8px #ff3366);
+    }
+
+    .circle-2 {
+      border-left-color: #00ccff;
+      filter: drop-shadow(0 0 8px #00ccff);
+      animation-delay: -0.5s;
+    }
+
+    .circle-3 {
+      border-bottom-color: #ffcc00;
+      filter: drop-shadow(0 0 8px #ffcc00);
+      animation-delay: -1s;
+    }
+
+    .circle-4 {
+      border-right-color: #33ff66;
+      filter: drop-shadow(0 0 8px #33ff66);
+      animation-delay: -1.5s;
+    }
+
+    .circle-5 {
+      border-top-color: #6633ff;
+      filter: drop-shadow(0 0 8px #6633ff);
+      animation-delay: -2s;
+    }
+
+    .circle-6 {
+      border-bottom-color: #00ffcc;
+      filter: drop-shadow(0 0 8px #00ffcc);
+      animation-delay: -2.5s;
+    }
+
+    .circle-7 {
+      border-right-color: #ff9900;
+      filter: drop-shadow(0 0 8px #ff9900);
+      animation-delay: -3.0s;
+    }
+
+    .loading-text {
+      margin-top: 40px;
+      color: white;
+      font-size: 24px;
+      letter-spacing: 4px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      animation: fadeInOut 1.5s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="loader">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+      <div class="circle circle-4"></div>
+      <div class="circle circle-5"></div>
+      <div class="circle circle-6"></div>
+      <div class="circle circle-7"></div>
+    </div>
+    <div class="loading-text">Loading</div>
+  </div>
+</body>
+</html>
